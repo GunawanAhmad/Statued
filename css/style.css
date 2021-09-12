@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .line-1.toggle {
+    transform: rotate(45deg);
+  }
+  .line-2.toggle {
+    transform: translateY(-12px) rotate(-45deg);
+  }
+  .menu.toggle {
+    transform: translateX(0);
+  }
+
+  .nav-dot.active {
+    background-color: #1f202c;
+  }
+
+  .menu div h1 {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  .menu.toggle div h1:nth-child(1) {
+    transform: translateX(100%);
+    opacity: 0;
+    animation: fadeIn 500ms ease 100ms;
+    animation-fill-mode: forwards;
+  }
+  .menu.toggle div h1:nth-child(2) {
+    transform: translateX(100%);
+    opacity: 0;
+    animation: fadeIn 500ms ease 200ms;
+    animation-fill-mode: forwards;
+  }
+  .menu.toggle div h1:nth-child(3) {
+    transform: translateX(100%);
+    opacity: 0;
+    animation: fadeIn 500ms ease 300ms;
+    animation-fill-mode: forwards;
+  }
+
+  .loading:after {
+    content: " .";
+    animation: dots 1s steps(5, end) infinite;
+  }
+
+  @keyframes fadeIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes dots {
+    0%,
+    20% {
+      color: rgba(0, 0, 0, 0);
+      text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+    }
+    40% {
+      color: black;
+      text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+    }
+    60% {
+      text-shadow: 0.25em 0 0 black, 0.5em 0 0 rgba(0, 0, 0, 0);
+    }
+    80%,
+    100% {
+      text-shadow: 0.25em 0 0 black, 0.5em 0 0 black;
+    }
+  }
+}
