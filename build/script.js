@@ -69,7 +69,7 @@ function init() {
 
   //Load model
   let loader = new THREE.OBJLoader(manager);
-  loader.load("3d.OBJ", function (obj) {
+  loader.load("./3d.obj", function (obj) {
     obj.traverse(function (ob) {
       if (ob.isMesh) {
         ob.material.color.set(0x505050);
